@@ -18,17 +18,17 @@ export const getShiftData = async () => {
   const rows = data.data.values.slice(1);
 
   const mappedData: resShiftData[] = rows.map((row) => ({
-    timestamp: { headerName: headers[0], value: row[0] || "" },
-    studentId: { headerName: headers[1], value: row[1] || "" },
-    name: { headerName: headers[2], value: row[2] || "" },
-    mail: { headerName: headers[10], value: row[10] || "" },
-    grade: { headerName: headers[3], value: row[3] || "" },
-    cook: { headerName: headers[4], value: row[4] || "" },
-    frends: { headerName: headers[5], value: row[5] || "" },
-    oneDay: { headerName: headers[6], value: row[6] || "" },
-    twoDay: { headerName: headers[7], value: row[7] || "" },
-    threeDay: { headerName: headers[8], value: row[8] || "" },
-    fourDay: { headerName: headers[9], value: row[9] || "" },
+    timestamp: { headerName: headers[0], value: row[0] || "なし" },
+    studentId: { headerName: headers[1], value: row[1] || "なし" },
+    name: { headerName: headers[2], value: row[2] || "なし" },
+    mail: { headerName: headers[10], value: row[10] || "なし" },
+    grade: { headerName: headers[3], value: row[3] || "なし" },
+    cook: { headerName: headers[4], value: row[4] || "なし" },
+    frends: { headerName: headers[5], value: row[5] || "なし" },
+    oneDay: { headerName: headers[6], value: row[6] || "なし" },
+    twoDay: { headerName: headers[7], value: row[7] || "なし" },
+    threeDay: { headerName: headers[8], value: row[8] || "なし" },
+    fourDay: { headerName: headers[9], value: row[9] || "なし" },
   }));
 
   return mappedData;
