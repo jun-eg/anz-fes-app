@@ -1,15 +1,8 @@
 import { getShiftData } from "@/actions/shiftAction";
+import ShiftLogsLayout from "@/components/features/ShiftLogLayout";
 
-const shiftLogsPage = async () => {
-  const shiftData = await getShiftData();
-  console.log(shiftData);
-
-  return (
-    <>
-      <div>シフトlog</div>
-      <pre className="text-sm">{JSON.stringify(shiftData, null, 2)}</pre>
-    </>
-  );
+const ShiftLogPages = async () => {
+  return <ShiftLogsLayout />;
 };
 
-export default shiftLogsPage;
+export default ShiftLogPages;
