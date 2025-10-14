@@ -3,10 +3,22 @@ import { ShiftProvider } from "@/provider/ShiftDateProvider";
 import { ReactNode } from "react";
 
 const HomeLayout = async ({ children }: { children: ReactNode }) => {
-  const initialDataa = await getShiftData();
+  let initialShiftDatas: Awaited<ReturnType<typeof getShiftData>> = [];
+
+  try {
+    initialShiftDatas = await getShiftData();
+  } catch (error) {
+    const message =
+      error instanceof Error
+        ? error.message
+        : "Unknown error while fetching shift data.";
+    console.error("HomeLayout failed to load shift data:", message);
+  }
 
   return (
-    <ShiftProvider initialShiftDatas={initialDataa}>{children}</ShiftProvider>
+    <ShiftProvider initialShiftDatas={initialShiftDatas}>
+      {children}
+    </ShiftProvider>
   );
 };
 
