@@ -1,11 +1,7 @@
 import { resData, resShiftData, SheetRes } from "@/types";
 
 export const getShiftData = async () => {
-  const baseUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "http://localhost:3000";
-
-  const res = await fetch(`${baseUrl}/api/shift`, { cache: "no-store" });
+  const res = await fetch(`/api/shift`, { cache: "no-store" });
 
   if (!res.ok) {
     console.error("Failed to fetch shift data:", res.statusText);
