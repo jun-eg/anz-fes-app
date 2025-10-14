@@ -1,60 +1,34 @@
 import { NextResponse } from "next/server";
-
-const resolveEnvValue = (value?: string) =>
-  value && value.trim().length > 0 ? value.trim() : "";
+import {
+  fetchSheetValues,
+  ShiftApiError,
+  ShiftConfigError,
+} from "@/lib/shiftData";
 
 export async function GET() {
   try {
-    const sheetId =
-      resolveEnvValue(process.env.sheetId) ||
-      resolveEnvValue(process.env.SHEET_ID) ||
-      "";
-    const apiKey =
-      resolveEnvValue(process.env.shiftDataApiKey) ||
-      resolveEnvValue(process.env.SHIFT_DATA_API_KEY) ||
-      "";
-
-    if (!sheetId || !apiKey) {
-      console.error("Missing required env vars for Google Sheets.", {
-        sheetIdPresent: Boolean(sheetId),
-        apiKeyPresent: Boolean(apiKey),
-      });
+    const data = await fetchSheetValues();
+    return NextResponse.json({ data });
+  } catch (error) {
+    if (error instanceof ShiftConfigError) {
+      console.error("Shift API configuration error:", error.message);
       return NextResponse.json(
         { message: "Server misconfigured: missing environment variables." },
         { status: 500 }
       );
     }
 
-    // URL-encode sheet name / range component to avoid invalid characters
-    const sheetRange = encodeURIComponent("フォームの回答 1");
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${sheetRange}?key=${apiKey}`;
-    const res = await fetch(url);
-
-    // Read body only once
-    const body = await res.text();
-
-    if (!res.ok) {
-      let parsed: unknown = body;
-      try {
-        parsed = JSON.parse(body);
-      } catch {
-        // keep text body
-      }
+    if (error instanceof ShiftApiError) {
       console.error("Google Sheets API error:", {
-        status: res.status,
-        body: parsed,
+        status: error.status,
+        body: error.body,
       });
       return NextResponse.json(
-        { message: "Failed to fetch sheet data from Google Sheets API." },
-        { status: res.status }
+        { message: error.message },
+        { status: error.status }
       );
     }
 
-    // body should contain valid JSON when ok
-    const data = JSON.parse(body) as unknown;
-
-    return NextResponse.json({ data });
-  } catch (error) {
     console.error("get shiftData failed:", (error as Error).message);
     return NextResponse.json(
       {
