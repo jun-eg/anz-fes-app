@@ -2,7 +2,7 @@ import { SheetRes } from "@/types";
 
 const SHEET_RANGE = encodeURIComponent("フォームの回答 1");
 
-const resolveEnvValue = (value?: string | null) =>
+const resolveEnvValue = (value?: string) =>
   value && value.trim().length > 0 ? value.trim() : "";
 
 export class ShiftConfigError extends Error {
@@ -14,9 +14,9 @@ export class ShiftConfigError extends Error {
 
 export class ShiftApiError extends Error {
   status: number;
-  body: unknown;
+  body: string;
 
-  constructor(message: string, status: number, body: unknown) {
+  constructor(message: string, status: number, body: string) {
     super(message);
     this.name = "ShiftApiError";
     this.status = status;
@@ -25,17 +25,11 @@ export class ShiftApiError extends Error {
 }
 
 export const resolveSheetCredentials = () => {
-  const sheetId =
-    resolveEnvValue(process.env.sheetId) ||
-    resolveEnvValue(process.env.SHEET_ID) ||
-    "";
-  const apiKey =
-    resolveEnvValue(process.env.shiftDataApiKey) ||
-    resolveEnvValue(process.env.SHIFT_DATA_API_KEY) ||
-    "";
+  const sheetId = resolveEnvValue(process.env.sheetId) || "";
+  const apiKey = resolveEnvValue(process.env.shiftDataApiKey) || "";
 
   if (!sheetId || !apiKey) {
-    throw new ShiftConfigError("Missing required Google Sheets credentials.");
+    throw new ShiftConfigError("googleSheetIdまたは、apiKeyがundefindです。");
   }
 
   return { sheetId, apiKey };
@@ -50,12 +44,10 @@ export const fetchSheetValues = async (): Promise<SheetRes> => {
   const body = await res.text();
 
   if (!res.ok) {
-    let parsed: unknown = body;
+    let parsed: string = body;
     try {
       parsed = JSON.parse(body);
-    } catch {
-      // keep raw text body
-    }
+    } catch {}
 
     throw new ShiftApiError(
       "Failed to fetch sheet data from Google Sheets API.",

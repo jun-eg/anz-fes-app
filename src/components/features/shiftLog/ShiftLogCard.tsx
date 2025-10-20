@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -5,7 +6,6 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { resShiftData } from "@/types";
-import { Button } from "../ui/button";
 
 type Props = {
   shiftData: resShiftData;

@@ -1,4 +1,4 @@
-import ShiftLogsLayout from "@/components/features/ShiftLogLayout";
+import ShiftLogsLayout from "@/components/features/shiftLog/ShiftLog";
 
 const ShiftLogPages = async () => {
   return <ShiftLogsLayout />;
