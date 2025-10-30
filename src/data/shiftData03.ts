@@ -427,12 +427,13 @@ export const shiftData03 = {
       name: "川上瑠南",
       assigned: [
         {
-          slotId: "2025-11-03T16:00_調理責任者",
+          slotId: "2025-11-03T16:00_会計",
           date: "2025-11-03",
           start: "16:00",
           end: "18:00",
-          role: "調理責任者",
+          role: "会計",
         },
+
         {
           slotId: "2025-11-03T18:00_片付け",
           date: "2025-11-03",
@@ -621,11 +622,11 @@ export const shiftData03 = {
       name: "堀水伶央菜",
       assigned: [
         {
-          slotId: "2025-11-03T16:00_会計",
+          slotId: "2025-11-03T16:00_調理責任者",
           date: "2025-11-03",
           start: "16:00",
           end: "18:00",
-          role: "会計",
+          role: "調理責任者",
         },
         {
           slotId: "2025-11-03T18:00_片付け",
