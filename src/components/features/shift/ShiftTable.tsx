@@ -3,8 +3,8 @@ import React from "react";
 type Assignment = {
   slotId: string;
   date: string;
-  start: string;
-  end: string;
+  start: string; // "HH:MM"
+  end: string; // "HH:MM"
   role: string;
 };
 
@@ -23,6 +23,11 @@ const times = Array.from({ length: (22 - 8) * 2 + 1 }, (_, i) => {
   const min = i % 2 === 0 ? "00" : "30";
   return `${hour.toString().padStart(2, "0")}:${min}`;
 });
+
+const toMinutes = (hhmm: string) => {
+  const [h, m] = hhmm.split(":").map(Number);
+  return h * 60 + m;
+};
 
 const roleColors: Record<string, string> = {
   準備: "bg-green-300",
@@ -49,11 +54,14 @@ export const ShiftTable: React.FC<Props> = ({ data }) => {
         <tbody>
           {data.map((member) => (
             <tr key={member.memberId}>
-              <td className="border px-2">{member.name}</td>
+              <td className="border px-2 whitespace-nowrap">{member.name}</td>
               {times.map((t, idx) => {
-                const active = member.assigned.find(
-                  (a) => t >= a.start && t < a.end
-                );
+                const tMin = toMinutes(t);
+                const active = member.assigned.find((a) => {
+                  const s = toMinutes(a.start);
+                  const e = toMinutes(a.end);
+                  return tMin > s && tMin <= e;
+                });
                 return (
                   <td
                     key={idx}
