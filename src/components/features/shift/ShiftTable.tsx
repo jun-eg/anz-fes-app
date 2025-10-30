@@ -3,8 +3,8 @@ import React from "react";
 type Assignment = {
   slotId: string;
   date: string;
-  start: string; // "HH:MM"
-  end: string; // "HH:MM"
+  start: string;
+  end: string;
   role: string;
 };
 
@@ -39,13 +39,15 @@ const roleColors: Record<string, string> = {
 
 export const ShiftTable: React.FC<Props> = ({ data }) => {
   return (
-    <div className="overflow-x-auto">
-      <table className="border border-gray-400 text-sm">
-        <thead>
+    <div className="overflow-auto max-h-[600px] max-w-full">
+      <table className="border border-gray-400 text-sm border-collapse">
+        <thead className="bg-white">
           <tr>
-            <th className="border px-2">名前</th>
+            <th className="border px-2 sticky left-0 top-0 z-20 bg-white">
+              名前
+            </th>
             {times.map((t) => (
-              <th key={t} className="border px-1">
+              <th key={t} className="border px-1 sticky top-0 z-10 bg-white">
                 {t}
               </th>
             ))}
@@ -54,7 +56,9 @@ export const ShiftTable: React.FC<Props> = ({ data }) => {
         <tbody>
           {data.map((member) => (
             <tr key={member.memberId}>
-              <td className="border px-2 whitespace-nowrap">{member.name}</td>
+              <td className="border px-2 sticky left-0 bg-white z-10">
+                {member.name}
+              </td>
               {times.map((t, idx) => {
                 const tMin = toMinutes(t);
                 const active = member.assigned.find((a) => {
