@@ -11,7 +11,7 @@ type Props = {
   shiftData: resShiftData;
 };
 
-const ShiftLogCard = ({ shiftData }: Props) => {
+const ShiftRequestCard = ({ shiftData }: Props) => {
   const cells = Object.values(shiftData || {}) as {
     headerName: string;
     value: string;
@@ -37,4 +37,4 @@ const ShiftLogCard = ({ shiftData }: Props) => {
   );
 };
 
-export default ShiftLogCard;
+export default ShiftRequestCard;
