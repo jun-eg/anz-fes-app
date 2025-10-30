@@ -30,16 +30,19 @@ const toMinutes = (hhmm: string) => {
 };
 
 const roleColors: Record<string, string> = {
-  準備: "bg-green-300",
+  準備: "bg-gray-300",
   会計: "bg-blue-300",
-  責任者: "bg-pink-300",
-  売込: "bg-yellow-300",
-  片付け: "bg-purple-300",
+  呼び込み: "bg-pink-300",
+  調理: "bg-yellow-300",
+  調理責任者: "bg-orange-300",
+  クリーンパトロール: "bg-green-300",
+  片付け: "bg-gray-300",
+  列整理: "bg-purple-300",
 };
 
 export const ShiftTable: React.FC<Props> = ({ data }) => {
   return (
-    <div className="overflow-auto max-h-[600px] max-w-full">
+    <div className="overflow-auto max-h-[1200px] max-w-full">
       <table className="border border-gray-400 text-sm border-collapse">
         <thead className="bg-white">
           <tr>
@@ -64,7 +67,8 @@ export const ShiftTable: React.FC<Props> = ({ data }) => {
                 const active = member.assigned.find((a) => {
                   const s = toMinutes(a.start);
                   const e = toMinutes(a.end);
-                  return tMin > s && tMin <= e;
+
+                  return tMin >= s && tMin < e;
                 });
                 return (
                   <td

@@ -8,7 +8,7 @@ export default function Home() {
       href: "https://docs.google.com/forms/d/e/1FAIpQLSf2wO3Kt0e20jxupo97TP7r2Thm-qy-OhXI3MOQhyncdXeJkw/viewform?usp=header",
       status: "closed",
     },
-    { name: "シフト希望確認", href: "/shiftLogs", status: "closed" },
+    { name: "シフト希望確認", href: "/shiftLogs", status: "open" },
     { name: "管理者ページ", href: "/admin", status: "closed" },
     { name: "11月1日シフト表", href: "/shift/0", status: "open" },
     { name: "11月2日シフト表", href: "/shift/1", status: "open" },
