@@ -73,7 +73,7 @@ export const ShiftTable: React.FC<Props> = ({ data }) => {
                 return (
                   <td
                     key={idx}
-                    className={`border text-center ${
+                    className={`border text-center text-nowrap ${
                       active ? roleColors[active.role] || "bg-gray-200" : ""
                     }`}
                   >
