@@ -42,7 +42,7 @@ const roleColors: Record<string, string> = {
 
 export const ShiftTable: React.FC<Props> = ({ data }) => {
   return (
-    <div className="overflow-auto max-h-[1200px] max-w-full">
+    <div className="overflow-auto max-h-[600px] max-w-full">
       <table className="border border-gray-400 text-sm border-collapse">
         <thead className="bg-white">
           <tr>
@@ -59,7 +59,7 @@ export const ShiftTable: React.FC<Props> = ({ data }) => {
         <tbody>
           {data.map((member) => (
             <tr key={member.memberId}>
-              <td className="border px-2 sticky left-0 bg-white z-10">
+              <td className="border px-2 sticky left-0 bg-white z-10 text-nowrap">
                 {member.name}
               </td>
               {times.map((t, idx) => {
