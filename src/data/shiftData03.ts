@@ -80,11 +80,11 @@ export const shiftData03 = {
           role: "準備",
         },
         {
-          slotId: "2025-11-03T10:00_列整理",
+          slotId: "2025-11-03T16:00_調理",
           date: "2025-11-03",
           start: "10:00",
           end: "12:00",
-          role: "列整理",
+          role: "調理",
         },
         {
           slotId: "2025-11-03T18:00_片付け",
@@ -576,11 +576,11 @@ export const shiftData03 = {
       name: "相良理人",
       assigned: [
         {
-          slotId: "2025-11-03T16:00_調理",
+          slotId: "2025-11-03T10:00_列整理",
           date: "2025-11-03",
           start: "10:00",
           end: "12:00",
-          role: "調理",
+          role: "列整理",
         },
         {
           slotId: "2025-11-03T16:00_呼び込み",
