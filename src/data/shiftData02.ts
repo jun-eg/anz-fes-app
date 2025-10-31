@@ -42,9 +42,17 @@ export const shiftData02 = {
           slotId: "2025-11-02T10:00_調理",
           date: "2025-11-02",
           start: "10:00",
-          end: "13:00",
+          end: "11:00",
           role: "調理",
         },
+        {
+          slotId: "2025-11-02T10:00_列整理",
+          date: "2025-11-02",
+          start: "11:00",
+          end: "13:00",
+          role: "列整理",
+        },
+
         {
           slotId: "2025-11-02T14:00_呼び込み",
           date: "2025-11-02",
@@ -77,13 +85,6 @@ export const shiftData02 = {
           date: "2025-11-02",
           start: "10:00",
           end: "12:00",
-          role: "調理",
-        },
-        {
-          slotId: "2025-11-02T13:00_調理",
-          date: "2025-11-02",
-          start: "13:00",
-          end: "15:00",
           role: "調理",
         },
         {
@@ -270,9 +271,16 @@ export const shiftData02 = {
       name: "竹井響",
       assigned: [
         {
+          slotId: "2025-11-02T10:00_調理",
+          date: "2025-11-02",
+          start: "11:00",
+          end: "13:00",
+          role: "調理",
+        },
+        {
           slotId: "2025-11-02T10:00_列整理",
           date: "2025-11-02",
-          start: "10:00",
+          start: "13:00",
           end: "15:00",
           role: "列整理",
         },
@@ -423,6 +431,13 @@ export const shiftData02 = {
       memberId: "1230250157",
       name: "遠藤一輝",
       assigned: [
+        {
+          slotId: "2025-11-02T13:00_調理",
+          date: "2025-11-02",
+          start: "13:00",
+          end: "15:00",
+          role: "調理",
+        },
         {
           slotId: "2025-11-02T15:00_列整理",
           date: "2025-11-02",

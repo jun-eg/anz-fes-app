@@ -49,6 +49,13 @@ export const shiftData03 = {
           slotId: "2025-11-03T16:00_調理",
           date: "2025-11-03",
           start: "16:00",
+          end: "17:00",
+          role: "呼び込み",
+        },
+        {
+          slotId: "2025-11-03T16:00_調理",
+          date: "2025-11-03",
+          start: "17:00",
           end: "18:00",
           role: "調理",
         },
@@ -102,7 +109,7 @@ export const shiftData03 = {
         {
           slotId: "2025-11-03T16:00_調理",
           date: "2025-11-03",
-          start: "16:00",
+          start: "17:00",
           end: "18:00",
           role: "調理",
         },
@@ -119,13 +126,6 @@ export const shiftData03 = {
       memberId: "1f10230014",
       name: "江口潤",
       assigned: [
-        {
-          slotId: "2025-11-03T12:00_調理",
-          date: "2025-11-03",
-          start: "12:00",
-          end: "14:00",
-          role: "調理",
-        },
         {
           slotId: "2025-11-03T18:00_片付け",
           date: "2025-11-03",
@@ -390,7 +390,7 @@ export const shiftData03 = {
           slotId: "2025-11-03T14:00_調理",
           date: "2025-11-03",
           start: "14:00",
-          end: "16:00",
+          end: "15:00",
           role: "調理",
         },
         {
@@ -410,7 +410,7 @@ export const shiftData03 = {
           slotId: "2025-11-03T14:00_調理",
           date: "2025-11-03",
           start: "14:00",
-          end: "16:00",
+          end: "15:00",
           role: "調理",
         },
         {
@@ -609,6 +609,13 @@ export const shiftData03 = {
       name: "蓑田陽菜",
       assigned: [
         {
+          slotId: "2025-11-03T14:00_調理",
+          date: "2025-11-03",
+          start: "15:00",
+          end: "16:00",
+          role: "調理",
+        },
+        {
           slotId: "2025-11-03T18:00_片付け",
           date: "2025-11-03",
           start: "18:00",
@@ -662,9 +669,16 @@ export const shiftData03 = {
       name: "小田部亜依",
       assigned: [
         {
-          slotId: "2025-11-03T10:00_呼び込み",
+          slotId: "2025-11-03T16:00_調理",
           date: "2025-11-03",
           start: "16:00",
+          end: "17:00",
+          role: "調理",
+        },
+        {
+          slotId: "2025-11-03T10:00_呼び込み",
+          date: "2025-11-03",
+          start: "17:00",
           end: "18:00",
           role: "呼び込み",
         },
@@ -687,6 +701,47 @@ export const shiftData03 = {
           start: "18:00",
           end: "20:00",
           role: "片付け",
+        },
+      ],
+    },
+    {
+      memberId: "1f10250147",
+      name: "ヤマダシンジ",
+      assigned: [
+        {
+          slotId: "2025-11-03T15:00_調理",
+          date: "2025-11-03",
+          start: "12:00",
+          end: "14:00",
+          role: "調理",
+        },
+      ],
+    },
+
+    {
+      memberId: "1330240128",
+      name: "岡田磨依",
+      assigned: [
+        {
+          slotId: "2025-11-03T14:30_調理",
+          date: "2025-11-03",
+          start: "16:00",
+          end: "17:00",
+          role: "調理",
+        },
+      ],
+    },
+
+    {
+      memberId: "1330240092",
+      name: "山口凜々花",
+      assigned: [
+        {
+          slotId: "2025-11-03T14:30_調理",
+          date: "2025-11-03",
+          start: "15:00",
+          end: "16:00",
+          role: "調理",
         },
       ],
     },
