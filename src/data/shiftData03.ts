@@ -729,6 +729,13 @@ export const shiftData03 = {
           end: "17:00",
           role: "調理",
         },
+        {
+          slotId: "2025-11-02T18:00_片付け",
+          date: "2025-11-02",
+          start: "18:00",
+          end: "20:00",
+          role: "片付け",
+        },
       ],
     },
 
@@ -742,6 +749,13 @@ export const shiftData03 = {
           start: "15:00",
           end: "16:00",
           role: "調理",
+        },
+        {
+          slotId: "2025-11-02T18:00_片付け",
+          date: "2025-11-02",
+          start: "18:00",
+          end: "20:00",
+          role: "片付け",
         },
       ],
     },
