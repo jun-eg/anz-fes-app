@@ -194,11 +194,11 @@ export const shiftData03 = {
       name: "小出翔太",
       assigned: [
         {
-          slotId: "2025-11-03T10:00_調理責任者",
+          slotId: "2025-11-03T10:00_会計",
           date: "2025-11-03",
           start: "10:00",
           end: "12:00",
-          role: "調理責任者",
+          role: "会計",
         },
         {
           slotId: "2025-11-03T08:00_準備",
@@ -248,9 +248,16 @@ export const shiftData03 = {
       name: "若林佑哉",
       assigned: [
         {
-          slotId: "2025-11-03T10:00_会計",
+          slotId: "2025-11-03T16:00_調理責任者",
           date: "2025-11-03",
           start: "10:00",
+          end: "12:00",
+          role: "調理責任者",
+        },
+        {
+          slotId: "2025-11-03T10:00_会計",
+          date: "2025-11-03",
+          start: "12:00",
           end: "14:00",
           role: "会計",
         },
